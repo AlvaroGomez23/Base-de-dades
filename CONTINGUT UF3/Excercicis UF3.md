@@ -128,6 +128,7 @@ per exemple si actualitzen dades, eliminen registres.
 
 
 La taula ha de tenir els següents camps:
+
 usuari VARCHAR(100) Usuari que ha realitzat l’acció
 data DATETIME Data-Hora en que s’ha realitzat l’acció
 taula VARCHAR(50) Taula sobre la que es realitza l’acció
