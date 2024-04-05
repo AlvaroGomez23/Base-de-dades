@@ -1,4 +1,6 @@
-~~~~sql
+<h1>RRHH</h1>
+
+```sql
 /* Eliminem la base de dades si existeix */
 DROP DATABASE IF EXISTS rrhh;
 
@@ -206,4 +208,4 @@ INSERT INTO historial_feines VALUES( 200, '1994-07-01', '1998-12-31', 'AC_ACCOUN
 
 
 /* Fi script */
-~~~~
+```
