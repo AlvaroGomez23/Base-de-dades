@@ -142,4 +142,3 @@ taula, l’acció i el valor_pk.
 Aquest procediment només cal que insereixi un registre en la taula logs_usuaris amb les
 dades rebudes, tenint en compte l’usuari actual i la data-hora del sistema.
 
-Hola
