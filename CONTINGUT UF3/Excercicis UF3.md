@@ -68,6 +68,55 @@ actual.
 Exercici 2 - Fes un procediment que intercanvii el sou de dos empleats passats per
 paràmetre.
 
+Funció spEmpleatExisteix:
+```sql
+CREATE FUNCTION spEmpleatExisteix (pEmpleatId INT) RETURNS BOOLEAN
+BEGIN 
+	
+    DECLARE vRetorn BOOLEAN;
+    
+    IF (SELECT empleat_id
+				FROM empleats
+			WHERE empleat_id = pEmpleatId) THEN 
+		SET vRetorn = 1;
+	END IF;
+    
+    RETURN vRetorn;
+END 
+//
+```
+
+```sql
+DROP PROCEDURE IF EXISTS spCambiarSou;
+DELIMITER //
+CREATE PROCEDURE spCambiarSou (IN pEmpleatId1 INT, IN pEmpleatId2 INT)
+BEGIN
+
+
+DECLARE vSalariTemp DECIMAL (8,2);
+
+IF spEmpleatExisteix (pEmpleatId1) = 1
+	AND spEmpleatExisteix (pempleatId2) = 1 THEN
+
+SELECT salari INTO vSalariTemp
+	FROM empleats
+WHERE empleat_id = pEmpleatId1;
+
+UPDATE empleats
+	SET salari = (SELECT salari
+					FROM emeplats
+					WHERE empleat_id = pEmpleatId2)
+WHERE empleat_id = pEmpleatId1;
+
+UPDATE empleats
+	SET salari = vSalariTemp
+WHERE empleat_id = pEmpleatId2;
+
+END IF;
+
+END
+//
+```
 
 
 Exercici 3 - Fes un procediment que donat dos Ids d'empleat assigni el codi de
