@@ -213,6 +213,17 @@ hem de passar el codi de departament, el nom del departament i el codi de la loc
 Exercici 10 - Fes un procediment que donat un codi d’empleat, ens posi en paràmetres
 de sortida el nom i el cognom. Indica com ho pots fer per comprovar si el procediment et
 funciona.
+```sql
+DROP PROCEDURE IF EXISTS spDadesEmpleat;
+DELIMITER //
+CREATE PROCEDURE spDadesEmpleat(IN pEmpleatId INT, OUT pEmpleatNom VARCHAR(20), OUT pEmpleatCognoms VARCHAR(40))
+BEGIN
+	SELECT nom, cognoms INTO pEmpleatNom, pEmpleatCognoms
+		FROM empleats
+	WHERE empleat_id = pEmpleatId;
+END
+//
+```
 
 
 
