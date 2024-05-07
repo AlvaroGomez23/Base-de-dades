@@ -185,6 +185,17 @@ Exercici 7 - Volem fer un registre dels usuaris que entren al nostre sistema. Pe
 primer caldrà crear una taula amb dos camps, un per guardar l’usuari i l’altre per guardar
 la data i hora de l’accés.
 ```sql
+CREATE TABLE registre_usuaris (
+	usuari VARCHAR(30)
+	data_access DATE
+);
+```
+
+
+Exercici 8 - A continuació feu un procediment sense arguments, de manera que cada
+vegada que el crideu, insereixi en aquesta taula l’usuari actual i la data i hora en que s’ha
+executat el procediment.
+```sql
 DROP PROCEDURE IF EXISTS spRegistrarUsuari;
 DELIMITER //
 CREATE PROCEDURE spRegistrarUsuari()
@@ -195,12 +206,6 @@ BEGIN
 END
 //
 ```
-
-
-Exercici 8 - A continuació feu un procediment sense arguments, de manera que cada
-vegada que el crideu, insereixi en aquesta taula l’usuari actual i la data i hora en que s’ha
-executat el procediment.
-
 
 
 Exercici 9 - Fes un procediment que ens permeti afegir un nou departament però amb la
