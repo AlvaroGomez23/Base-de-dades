@@ -62,6 +62,16 @@ spPringat?
 
 Exercici 1 - Fes un procediment que permeti obtenir la data i hora del sistema i l’usuari
 actual.
+```sql
+
+DROP PROCEDURE IF EXISTS sp_obtenirDades;
+DELIMITER //
+CREATE PROCEDURE sp_obtenirDades ()
+BEGIN
+	SELECT USER() AS usuari, NOW() AS "data i hora";
+END
+//
+```
 
 
 
