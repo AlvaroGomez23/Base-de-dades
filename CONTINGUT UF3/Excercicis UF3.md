@@ -76,9 +76,24 @@ END
 
 Exercici 5 - Utilitzant la funció spPringat fes una consulta per obtenir de cada
 departament, l’empleat pringat. Mostra el codi i nom del departament, i el codi d’empleat.
+```sql
+CREATE FUNCTION spPringat (pDepartamentId INT) RETURNS INT 
+NOT DETERMINISTIC READS SQL DATA
+BEGIN 
 
-
-
+	DECLARE vRetorn INT;
+    
+    SELECT empleat_id INTO vRetorn
+		FROM empleats
+	WHERE departament_id = pDepartamentId
+    ORDER BY empleat_id ASC
+    LIMIT 1;
+    
+    RETURN vRetorn;
+    
+END
+//
+```
 Exercici 6 - Fes una funció anomenada spCategoria, tal que donat un codi d’empleat,
 ens digui en quina categoria professional està. El criteri que volem seguir per determinar
 la categoria professional és en funció dels anys que porta treballant a l’empresa:
