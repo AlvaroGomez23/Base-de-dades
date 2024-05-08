@@ -4,6 +4,21 @@
 Exercici 1 - Fes una funció anomenada spData, tal que donada una data en format
 MySQL ( AAAA-MM-DD ) ens retorni una cadena de caràcters en format DD-MM-AAAA
 Exemple : SELECT spData('1988-12-01') => 01-12-1988
+```sql
+DELIMITER //
+
+CREATE FUNCTION spData (data DATE) RETURNS CHAR(10)
+DETERMINISTIC
+BEGIN
+	
+	DECLARE sData CHAR(10);
+    
+    SET sData = DATE_FORMAT(data, "%d-%m-%Y");
+    RETURN sData;
+
+END
+//
+```
 
 
 
