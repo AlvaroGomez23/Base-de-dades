@@ -37,8 +37,30 @@ Entre 0 i 1 anys -> Auxiliar
 Entre 2 i 10 anys -> Oficial de Segona
 Entre 11 i 20 Anys -> Oficial de Primera
 Més de 20 anys -> Que es jubili!
+```sql
+DROP FUNCTION IF EXISTS spCategoria;
+DELIMITER //
+CREATE FUNCTION spCategoria(pEmpleatId INT) RETURNS VARCHAR(20)
+NOT DETERMINISTIC READS SQL DATA
+BEGIN
+	DECLARE vRetorn VARCHAR(20);
+    DECLARE anys INT;
 
-
+	SELECT YEAR(CURDATE()) - YEAR(data_contractacio) INTO anys
+		FROM empleats
+	WHERE empleat_id = pEmpleatid;
+    
+    SET vRetorn = CASE
+    WHEN anys BETWEEN 0 AND 1 THEN "Auxiliar"
+    WHEN anys BETWEEN 2 AND 10 THEN "Oficial de segona"
+    WHEN anys BETWEEN 11 AND 20 THEN "Oficial de primera"
+    ELSE "Que es jubili"
+    END;
+    
+    RETURN vRetorn;
+END
+//
+```
 
 Exercici 7 - Fes una consulta utilitzant la funció anterior perquè mostri mostri de cada
 empleat, el codi d’empleat, el nom, els anys treballats i la categoria professional a la que
