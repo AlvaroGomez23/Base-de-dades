@@ -32,11 +32,45 @@ Exercici 3 - Fes una funció anomenada spIncrement que donat un codi d’empleat
 % de increment, ens calculi el salari sumant aquest percentatge.
 Per exemple, suposem que l’ empleat amb id_empleat = 124 té un salari de 1000
 Exemple: SELECT spIncrement(124,10) obtindriem -> 1100
+```sql
+CREATE FUNCTION spIncrement (pEmpleat INT, pIncrement FLOAT) RETURNS FLOAT
+NOT DETERMINISTIC READS SQL DATA
+BEGIN
+
+
+	DECLARE vRetorn FLOAT;
+
+	SELECT salari*(pIncrement+100)/100 INTO vRetorn
+		FROM empleats
+	WHERE empleat_id = pEmpleat;
+   
+    RETURN vRetorn;
+END
+//
+```
 
 
 
 Exercici 4 - Fes una funció anomenada spPringat, tal que li passem un codi de
 departament, i ens torni el codi d’empleat que guanya menys d’aquell departament.
+```sql
+CREATE FUNCTION spPringat (pDepartamentId INT) RETURNS INT 
+NOT DETERMINISTIC READS SQL DATA
+BEGIN 
+
+	DECLARE vRetorn INT;
+    
+    SELECT empleat_id INTO vRetorn
+		FROM empleats
+	WHERE departament_id = pDepartamentId
+    ORDER BY empleat_id ASC
+    LIMIT 1;
+    
+    RETURN vRetorn;
+    
+END
+//
+```
 
 
 
