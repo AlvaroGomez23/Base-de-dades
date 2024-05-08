@@ -268,3 +268,32 @@ taula, l’acció i el valor_pk.
 Aquest procediment només cal que insereixi un registre en la taula logs_usuaris amb les
 dades rebudes, tenint en compte l’usuari actual i la data-hora del sistema.
 
+# Enunciats de triggers
+
+Exercici 1: Omplir la següent taula indicant en cada cas si es pot accedir als
+registres NEW i OLD des del trigger corresponent i, en cas afirmatiu, quin tipus
+d'operació és pot realitzar (L(llegir) o M(modificar)).
+
+
+Exercici 2: A quina taula o taules de la base de dades INFORMATION_SCHEMA de
+MySQL es poden consultar els triggers que hi ha a la base dades?
+
+
+Exercici 4: Validació de dades d’entrada
+Mitjançant triggers volem dur el control de dades d’entrada d’una taula.
+Concretament volem dur el control del camp salari de la taula empleats. Aquest
+salari ha de ser un valor dins del rang marcat pels camps salari_min i
+salari_max de la taula feines.
+En definitiva, volem controlar que el salari dels empleats estigui dins dels rangs de
+salaris marcats per el tipus de feina que fa l’empleat.
+
+
+
+Exercici 5: Manteniment del camp num_empleats
+Afegeix un el camp num_empleats a la taula departaments. Aquest camp
+simbolitza/modela el número d’empleats que té aquell departament.
+Implementa mitjançant triggers el manteniment d’aquest camp de manera
+automàtica.
+Per exemple si s’afegeix un nou empleat del departament amb codi 10 cal
+augmentar en 1 aquest camp del departament_id = 10
+
