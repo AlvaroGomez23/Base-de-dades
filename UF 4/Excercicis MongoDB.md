@@ -6,7 +6,19 @@
 1. Volem comparar l'alçada dels dos germans Gasol. El noms curts són "Pau Gasol" i
 "Marc Gasol".
 ```JavaScript
-
+[
+  {
+    $match:
+      /**
+       * query: The query in MQL.
+       */
+      {
+        nom_curt: {
+          $in: ["Pau Gasol", "Marc Gasol"]
+        }
+      }
+  }
+]
 ```
 2. L’entrenador “Pedro Martínez” és un dels entrenadors més veterans. Quants partits
 ha participat com a entrenador. Independentment de si ho ha fet com a local o com
