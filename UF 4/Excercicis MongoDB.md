@@ -5,7 +5,7 @@
 ## Excercicis DB_ACB
 1. Volem comparar l'alçada dels dos germans Gasol. El noms curts són "Pau Gasol" i
 "Marc Gasol".
-```JavaScript
+```md
 [
   {
     $match:
